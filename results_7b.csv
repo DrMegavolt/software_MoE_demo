@@ -1,0 +1,15 @@
+Query,Output
+what is price of MSFT,['Price of MSFT is 371.4900']
+Buy 100 shares of UBER,"[[{'ticker': 'UBER', 'op': 'buy', 'quantity': 100}]]"
+Buy 10 shares of AAPL,"[[{'ticker': 'AAPL', 'op': 'buy', 'quantity': 10}]]"
+get me 5 microsoft,"[[{'ticker': 'MSFT', 'op': 'buy', 'quantity': 5}]]"
+dump my 100 SPY,Query type not recognized.
+sell 100 SPY,"[[{'ticker': 'SPY', 'op': 'sell', 'quantity': 100}]]"
+sell 100 SPY and buy 20 rivian,Query type not recognized.
+how much is AAPL,['Price of AAPL is 196.1600']
+how much is SPY,['Price of SPY is 472.5300']
+I want to buy 100 shares of UBER,"[[{'ticker': 'UBER', 'op': 'buy', 'quantity': 100}]]"
+I want to sell 100 shares of MNST,Query type not recognized.
+Draw a llama,['http://example.com/{name}.png http://example.com/llama.png']
+Draw a cat,['http://example.com/cat.png']
+I want an image of a shark,['http://example.com/shark.png']

@@ -1,0 +1,47 @@
+Demo project for in code simulation of Mixture of experts (MoE) models using the [llama]
+Instead of training the model to be the router, code based routing is used.
+
+Each expert exposes a smaller model that shows if the expert is the right one for the input.
+The router then uses the output of the experts to decide which expert to use.
+For all used experts, the output is combined to the final output.
+
+included 3 experts:
+- stock price
+- stock order generator
+- stub for image generator (returns link http://example.com/{image}.png )
+
+Router asks the experts if they can handle the input.
+If the expert can handle the input, the expert is used.
+Output from all capable experts is combined to the final output.
+
+
+works on CPU just fine, but GPU is faster 
+### Installation 
+
+conda env create --name stock-bot-demo -f environment.yml
+conda activate stock-bot-demo
+
+#### STOCK price data
+get free api key https://www.alphavantage.co/support/#api-key
+`export ALPHA_VANTAGE_API_KEY="your key"`
+
+#### Download model
+I'm using this model:
+https://huggingface.co/TheBloke/neural-chat-7B-v3-1-GGUF/tree/main
+
+Q8 seems to work well
+https://huggingface.co/TheBloke/neural-chat-7B-v3-1-GGUF/blob/main/neural-chat-7b-v3-1.Q8_0.gguf
+
+for detection purposes Q5_k works well too neural-chat-7b-v3-1.Q5_K_M.gguf
+
+set env variable STOCK_BOT_DETECTOR_MODEL to the full path to the model
+
+notes for building on macos:
+`CMAKE_ARGS="-DLLAMA_METAL=on" pip install llama-cpp-python`
+
+cuda
+`CMAKE_ARGS="-DLLAMA_CUBLAS=on" pip install llama-cpp-python`
+
+more flags
+https://github.com/abetlen/llama-cpp-python
+
