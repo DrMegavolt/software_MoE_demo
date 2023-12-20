@@ -6,8 +6,8 @@ The router then uses the output of the experts to decide which expert to use.
 For all used experts, the output is combined to the final output.
 
 included 3 experts:
-- stock price
-- stock order generator
+- stock price (returns current price for ticker)
+- stock order generator (returns JSON with order, the idea is to show it to user with confirm/cancel buttons)
 - stub for image generator (returns link http://example.com/{image}.png )
 
 Router asks the experts if they can handle the input.
